@@ -1,0 +1,82 @@
+﻿@model FPRO.Models.Class.Uyeler
+
+@{
+    ViewBag.Title = "Uyeler";
+    Layout = "~/Views/Shared/_UserLoginLayout.cshtml";
+}
+
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            @using (Html.BeginForm())
+            {
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    @Html.AntiForgeryToken()
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4"><span class="fas fa-house-user"></span> Kayıt Ol</h3></div>
+                    <div class="card-body">
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label class="small mb-1" asp-for="Ad Soyad"></label>
+                            @Html.TextBoxFor(x => x.AdiSoyad, new
+                {
+               @class = "form-control py-4",
+               placeholder = "Lütfen Adınızı Soyadınızı giriniz",
+               aria_label = "Ad Soyad",
+               aria_describedby = "basic-addon1"
+           })
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1" asp-for="Ad Soyad"></label>
+                            @Html.TextBoxFor(x => x.Eposta, new
+                {
+               @class = "form-control py-4",
+               placeholder = "Lütfen e-posta adresinizi giriniz.",
+               type = "email",
+               aria_label = "E-Posta",
+               aria_describedby = "basic-addon1"
+           })
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1" asp-for="Ad Soyad"></label>
+                            @Html.TextBoxFor(x => x.Telefon, new
+                  {
+                 @class = "form-control py-4",
+                 placeholder = "Lütfen telefon numaranızı giriniz.",
+                 type = "tel",
+                 aria_label = "Telefon Numarası",
+                 aria_describedby = "basic-addon1"
+                            })
+                            <span asp-validation-for="Tel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1" asp-for="Password"></label>
+
+                            @Html.PasswordFor(x => x.Sifre, new
+                            {
+                                @class = "form-control py-4",
+                                placeholder = "Lütfen şifrenizi giriniz.",
+                           type = "password",
+                                aria_label = "Şifre",
+                           aria_describedby = "basic-addon1"
+                            })
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+
+                            <button class="btn btn-success btn-block text-white" type="submit"><span class="fas fa-sign-in-alt"></span>Kayıt Ol</button>
+                        </div>
+
+                    </div>
+                </div>
+            }
+            @if (ViewBag.hata != null)
+            {
+                <div class="alert alert-danger" role="alert">@ViewBag.hata</div>
+            }
+        </div>
+    </div>
+</div>

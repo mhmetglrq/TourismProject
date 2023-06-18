@@ -1,0 +1,210 @@
+﻿@using FPRO.Models.Class
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayoutPage1.cshtml";
+}
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+       
+        <div class="owl-carousel owl-theme">
+            @if (ViewBag.restaurants != null) { 
+                foreach (var r in ViewBag.restaurants)
+                {
+                    <div class="item">
+                        <div class="caption">
+                            <div class="container">
+                                <img src="@r.Resim" style="width: 100%; object-fit: cover;">
+                                <div class="col-md-8 col-sm-12">
+                                    <h3>Eatery Cafe &amp; Restaurant</h3>
+                                    <h1>Our mission is to provide an unforgettable experience</h1>
+                                    <a href="#team" class="section-btn btn btn-default smoothScroll">Meet our chef</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="item item-second">
+                    <div class="caption">
+                        <div class="container">
+                            <div class="col-md-8 col-sm-12">
+                                <h3>Henüz Bir Restaurant Eklenmemiş!</h3>
+                                <h1>Eklendiği zaman burada gözükücek!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+<!--slide-->
+<!--geziler-->
+<section id="about" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+                <div class="about-info">
+                    <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                        <h4>Read our story</h4>
+                        <h2>We've been Making The Delicious Foods Since 1999</h2>
+                    </div>
+
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <p>Fusce hendrerit malesuada lacinia. Donec semper semper sem vitae malesuada. Proin scelerisque risus et ipsum semper molestie sed in nisi. Ut rhoncus congue lectus, rhoncus venenatis leo malesuada id.</p>
+                        <p>Sed elementum vel felis sed scelerisque. In arcu diam, sollicitudin eu nibh ac, posuere tristique magna. You can use this template for your cafe or restaurant website. Please tell your friends about <a href="https://plus.google.com/+templatemo" target="_parent">templatemo</a>. Thank you.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                    <img src="~/Content/images/about-image.jpg" class="img-responsive" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="team" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                    <h2>Oteller</h2>
+                    <h4>Gayet Güzeller</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    @foreach (var i in Model)
+    {
+        <a href="@i.Resim" class="image-popup" title="@i.Baslik">
+            <div class="col-md-4 col-sm-4">
+                <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                    <img src="@i.Resim" class="img-responsive" alt="">
+                    <div class="team-hover">
+                        <div class="team-item">
+                            <h4>@i.Aciklama</h4>
+                            <ul class="social-icon">
+                                <li><a href="#" class="fa fa-linkedin-square"></a></li>
+                                <li><a href="#" class="fa fa-envelope-o"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>@i.Baslik</h3>
+                    <p>@i.Aciklama</p>
+                </div>
+            </div>
+        </a>
+            }
+    </div>
+<section id="menu" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                    <h2>Hizmetlerimiz</h2>
+                    <h4>Geziler &amp; Oteller &amp; Restoranlar</h4>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="/Home/Blog">
+                        <img src="~/Content/images/blog.jpg" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Blog / Gezilecek Yerler</h3>
+                                <p>Sizin için derlediklerimiz!</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+         
+
+         
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="/Home/Otellerimiz">
+                        <img src="~/Content/images/otel.jpg" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Otellerimiz</h3>
+                                <p>Sizi evinizde hissettirecek otellerimiz!</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="/Home/Restoranlarimiz">
+                        <img src="~/Content/images/restoran.jpg" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Restoranlarımız</h3>
+                                <p>Enfes tadlar sizi bekliyor</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--geziler-->
+<!--hizmetler-->
+@*<div class="container-fluid">
+        <section class="services" style="background:#6b93b1;">
+            <h2 class="heading">Hizmetlerimiz</h2>
+            <p class="text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Dolores ab sequi beatae deserunt dignissimos eum vitae voluptatibus repellendus qui vero sint nobis, sunt labore, illo numquam necessitatibus dicta fuga incidunt odit ullam, architecto a! Aliquam similique, illum dicta ab suscipit ad nostrum. Eligendi inventore
+                facilis rerum natus deserunt excepturi quibusdam!
+            </p>
+            <div class="container1">
+                <div class="serviceBx">
+                    <div>
+                        <a href="Otellerimiz" style="text-decoration: none; color:#000">
+                            <img src="~/resimler/hot.png" alt="">
+                            <h2>Oteller</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="serviceBx">
+                    <div>
+                        <a href="/Admin/Blog" style="text-decoration: none; color:#000">
+                            <img src="~/resimler/trav.png" alt="">
+                            <h2>Geziler</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="serviceBx">
+                    <div>
+                        <a href="Restoranlarimiz" style="text-decoration: none; color:#000">
+                            <img src="~/resimler/res.png" alt="">
+                            <h2>Restoranlar</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>*@
+<!--hizmetler-->

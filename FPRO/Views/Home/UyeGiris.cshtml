@@ -1,0 +1,98 @@
+﻿@model FPRO.Models.Class.Uyeler
+
+@{
+    ViewBag.Title = "UyeGiris";
+    Layout = "~/Views/Shared/_UserLoginLayout.cshtml";
+}
+
+@*<div class="container3">
+        <div class="contact-box">
+
+            @using (Html.BeginForm())
+            {
+                <div class="right">
+                    <h2>Giriş Yap</h2>
+                    @Html.AntiForgeryToken()
+
+                    <hr />
+
+                    <span class="control-label col-md-2" id="basic-addon1">E-Posta</span>
+                    @Html.TextBoxFor(x => x.Eposta, new { @class = "field", placeholder = "", aria_label = "E-Posta", aria_describedby = "basic-addon1" })
+
+
+                    <span class="control-label col-md-2" id="basic-addon1">Şifre</span>
+                    @Html.PasswordFor(x => x.Sifre, new { @class = "field", placeholder = "", aria_label = "Şifre", aria_describedby = "basic-addon1" })
+
+
+                    <div class="form-group">
+                        <button class="btn">Giriş Yap</button>
+                    </div>
+                </div>
+
+            }
+            @if (ViewBag.hata != null)
+            {
+                <div class="alert alert-danger" role="alert">@ViewBag.hata</div>
+            }
+        </div>
+
+    </div>*@
+
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                @using (Html.BeginForm())
+                {
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        @Html.AntiForgeryToken()
+                        <div class="card-header"><h3 class="text-center font-weight-light my-4"><span class="fas fa-house-user"></span> Giriş Yap</h3></div>
+                        <div class="card-body">
+
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label class="small mb-1" asp-for="Email"></label>
+                                @Html.TextBoxFor(x => x.Eposta, new
+                                {
+                                    @class = "form-control py-4",
+                                    placeholder = "Lütfen e-posta adresinizi giriniz.",
+                               type = "email",
+                               aria_label = "E-Posta",
+                                    aria_describedby = "basic-addon1"
+                                })
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" asp-for="Password"></label>
+
+                                @Html.PasswordFor(x => x.Sifre, new
+                                {
+                                    @class = "form-control py-4",
+                                    placeholder = "Lütfen şifrenizi giriniz.",
+                               type = "password",
+                                    aria_label = "Şifre",
+                               aria_describedby = "basic-addon1"
+                                })
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                <a class="btn btn-secondary text-white"><span class="fas fa-user-lock"></span> Şifremi Unuttum</a>
+                                <button class="btn btn-primary" type="submit"><span class="fas fa-sign-in-alt"></span> Giriş Yap</button>
+                            </div>
+
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="/Home/Uyeler"class="btn btn-success btn-block text-white"><span class="fas fa-user-edit"></span> Kayıt Ol</a>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.hata != null)
+                {
+                    <div class="alert alert-danger" role="alert">@ViewBag.hata</div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
