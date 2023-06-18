@@ -75,6 +75,7 @@ namespace FPRO.Controllers
             {
                 FormsAuthentication.SetAuthCookie(GelenUye.Eposta, false);
                 Session["uye"] = GelenUye.Eposta;
+                Session["currentUser"] = uye;
                 return RedirectToAction("AdminSayfasi","Admin");
             }
             else
@@ -93,6 +94,7 @@ namespace FPRO.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
+            Session["uye"] = null;
             return RedirectToAction("Index" , "Home");
         }
 

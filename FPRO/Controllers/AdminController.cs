@@ -16,8 +16,9 @@ namespace FPRO.Controllers
         [Authorize]
         public ActionResult AdminSayfasi()
         {
+            
             string GirenUye = HttpContext.User.Identity.Name;
-            List<Admin> uye = DB.Admins.Where(s => s.Kulanciadi == GirenUye).ToList();
+            Uyeler uye = DB.Uyeler.Where(s => s.Eposta == GirenUye).FirstOrDefault();
             return View(uye);
         }
         [Authorize]
